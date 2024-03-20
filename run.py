@@ -36,6 +36,8 @@ def about_member(member_name):
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
+        #  print(request.form) - prints all form data on terminal / throws NONE if there is no key
+        #  print(request.form.get("name")) OR request.form["name"]- gets name from form (form is a DICTIONARY) / throws EXCEPTION if there's no key
         flash("Thanks {}, We've received your message and will get back ASAP".format(request.form.get("name")))
     return render_template("contact.html", page_title="Contact Us!")
 
